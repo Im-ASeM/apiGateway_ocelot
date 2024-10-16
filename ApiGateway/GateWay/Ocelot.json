@@ -1,0 +1,230 @@
+{
+    "Routes": [
+        {
+            "DownstreamPathTemplate": "/api/Class/GetClassmate",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 6100
+                }
+            ],
+            "UpstreamPathTemplate": "/Class/GetClassmate",
+            "UpstreamHttpMethod": [
+                "Get"
+            ],
+            "AddQueryParamsToRequest": {
+                "ClassId": "{ClassId}"
+            },
+            "RateLimitOptions":{
+                "ClientWhiteList" : [],
+                "EnableRateLimiting": true,
+                "Period" : "10s",
+                "PeriodTimespan" :10,
+                "Limit":10
+            }
+        },
+        {
+            "DownstreamPathTemplate": "/api/Class/AddToClass",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 6100
+                }
+            ],
+            "UpstreamPathTemplate": "/Class/AddToClass",
+            "UpstreamHttpMethod": [
+                "Post"
+            ],
+            "AddQueryParamsToRequest": {
+                "ClassId": "{ClassId}",
+                "StudentId": "{StudentId}"
+            }
+        }
+        ,
+        {
+            "DownstreamPathTemplate": "/api/Class/RemoveFromClass",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 6100
+                }
+            ],
+            "UpstreamPathTemplate": "/Class/RemoveFromClass",
+            "UpstreamHttpMethod": [
+                "Delete"
+            ],
+            "AddQueryParamsToRequest": {
+                "ClassId": "{ClassId}",
+                "StudentId": "{StudentId}"
+            }
+        }
+        ,
+        {
+            "DownstreamPathTemplate": "/api/Score/GetStudentScores",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 6100
+                }
+            ],
+            "UpstreamPathTemplate": "/Score/GetStudentScores",
+            "UpstreamHttpMethod": [
+                "Get"
+            ],
+            "AddQueryParamsToRequest": {
+                "ClassId": "{ClassId}",
+                "StudentId": "{StudentId}"
+            }
+        }
+        ,
+        {
+            "DownstreamPathTemplate": "/api/Score/GetStudentAllScores",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 6100
+                }
+            ],
+            "UpstreamPathTemplate": "/Score/GetStudentAllScores",
+            "UpstreamHttpMethod": [
+                "Get"
+            ],
+            "AddQueryParamsToRequest": {
+                "StudentId": "{StudentId}"
+            }
+        }
+        ,
+        {
+            "DownstreamPathTemplate": "/api/Score/AddScore",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 6100
+                }
+            ],
+            "UpstreamPathTemplate": "/Score/AddScore",
+            "UpstreamHttpMethod": [
+                "Post"
+            ],
+            "AddQueryParamsToRequest": {
+                "StudentId": "{StudentId}",
+                "ClassId": "{ClassId}",
+                "StudentScore": "{StudentScore}"
+            }
+        }
+        ,
+        {
+            "DownstreamPathTemplate": "/GetClass",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 6101
+                }
+            ],
+            "UpstreamPathTemplate": "/Class/getClass",
+            "UpstreamHttpMethod": [
+                "Get"
+            ]
+        }
+        ,
+        {
+            "DownstreamPathTemplate": "/AddClass",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 6101
+                }
+            ],
+            "UpstreamPathTemplate": "/Class/AddClass",
+            "UpstreamHttpMethod": [
+                "Post"
+            ],
+            "AddQueryParamsToRequest": {
+                "ClassName": "{ClassName}"
+            }
+        }
+        ,
+        {
+            "DownstreamPathTemplate": "/RemoveClass",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 6101
+                }
+            ],
+            "UpstreamPathTemplate": "/Class/RemoveClass",
+            "UpstreamHttpMethod": [
+                "Delete"
+            ],
+            "AddQueryParamsToRequest": {
+                "ClassId": "{ClassId}"
+            }
+        }
+        ,
+        {
+            "DownstreamPathTemplate": "/GetStudent",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 6101
+                }
+            ],
+            "UpstreamPathTemplate": "/Student/GetStudent",
+            "UpstreamHttpMethod": [
+                "Get"
+            ]
+        }
+        ,
+        {
+            "DownstreamPathTemplate": "/AddStudent",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 6101
+                }
+            ],
+            "UpstreamPathTemplate": "/Student/AddStudent",
+            "UpstreamHttpMethod": [
+                "Post"
+            ],
+            "AddQueryParamsToRequest": {
+                "FirstName": "{FirstName}",
+                "LastName": "{LastName}",
+                "CodeMeli": "{CodeMeli}",
+                "Phone": "{Phone}"
+            }
+        }
+        ,
+        {
+            "DownstreamPathTemplate": "/RemoveStudent",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 6101
+                }
+            ],
+            "UpstreamPathTemplate": "/Student/RemoveStudent",
+            "UpstreamHttpMethod": [
+                "Delete"
+            ],
+            "AddQueryParamsToRequest": {
+                "StudentId": "{StudentId}"
+            }
+        }
+    ],
+    "GlobalConfiguration": {
+        "BaseUrl": "http://localhost:5000"
+    }
+}
